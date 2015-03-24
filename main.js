@@ -18,6 +18,7 @@
 
 		self.form.setAttribute('action', '/');
 		self.form.setAttribute('method', 'POST');
+		self.listInput.setAttribute("class", "add-input");
 		self.addButton.appendChild(addText);
 		self.addButton.setAttribute("type", "button");
 		self.addButton.setAttribute("class", "add");
@@ -44,7 +45,8 @@
 		});
 		// FORM METHODS
 		self.create = function() {
-			var form = document.body.appendChild(self.form);
+			var listSection = document.getElementById('list-section');
+			var form = listSection.appendChild(self.form);
 			form.appendChild(self.listInput);
 			form.appendChild(self.addButton);
 			form.appendChild(self.list);
@@ -52,22 +54,24 @@
 		}
 
 		self.add = function() {
-			var itemText = document.createTextNode(self.listInput.value);
+			var itemText = self.listInput.value;
 
 			if(itemText.length > 0) {
-				var itemSpan = document.createElement("span");
+				var itemInput = document.createElement("input");
 				var listItem = document.createElement("li");
 				var removeButton = document.createElement("button");
 				var removeText = document.createTextNode("x");
 				removeButton.setAttribute("type", "button");
 				removeButton.setAttribute("class", "remove-item");
-				itemSpan.setAttribute("class", "list-item");
-				itemSpan.id = "list-item";
+				itemInput.setAttribute("class", "list-item");
+				itemInput.setAttribute("type", "text");
+				itemInput.setAttribute("name", "item[]");
+				itemInput.setAttribute("value", itemText);
+				itemInput.setAttribute("readonly", "readonly");
 
 				removeButton.appendChild(removeText);
-				itemSpan.appendChild(itemText);
 				listItem.appendChild(removeButton);
-				listItem.appendChild(itemSpan);
+				listItem.appendChild(itemInput);
 				self.list.appendChild(listItem);
 
 				self.listInput.value = "";
@@ -87,12 +91,8 @@
 			var form = e.toElement.parentNode;
 			var listItems = e.toElement.form.children[2].children;
 			if(listItems.length > 0) {
-				submission = [];
-				for(i=0; i < listItems.length; i++) {
-					submission.push(listItems[i].children[1].textContent);
-				}
-				console.log(submission);
-				form.parentNode.removeChild(form);
+				localStorage.setItem()
+				form.submit();
 			} else {
 				alert('Nothing to submit!');
 			}

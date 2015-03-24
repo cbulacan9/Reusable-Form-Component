@@ -34,7 +34,7 @@ form.selected {
 	border-top: solid #88D2EE 10px;
 }
 
-input {
+input.add-input {
 	width: 250px;
 	padding: 0.2em 0.5em;
 	border: none;
@@ -42,18 +42,18 @@ input {
 	margin-right: 5px;
 }
 
-.selected input {
-	width: 280px;
+.selected input.add-input {
+	width: 275px;
 }
 
-.selected input:hover {
-	width: 285px;
+.selected input.add-input:hover {
+	width: 280px;
 	height: 20px;
 }
 
-.selected input:focus {
+.selected input.add-input:focus {
 	outline: none;
-	width: 285px;
+	width: 280px;
 	height: 20px;
 }
 
@@ -93,18 +93,21 @@ li {
 	border: none;
 	width: 90px;
 	padding: 2.5px 20px;
-	margin-left: 210px;
+	margin-left: 205px;
 	border-radius: 2px;
 	background-color: #90a4ae;
 	color: white;
 	opacity: 0.75;
 }
 
-.list-item {
+input.list-item {
 	font-size: 13px;
+	width: 90%;
+	background-color: white;
+	border: none;
 }
 
-.selected .list-item {
+.selected input.list-item {
 	color: #9D7126;
 }
 

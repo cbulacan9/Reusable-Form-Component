@@ -1,20 +1,35 @@
 body {
-	margin: 1% 20%;
-	background-color: #DAE1D1; 
+	margin: 0px;
+	background-color: #DAE1D1;
 	color: #90a4ae;
 	font-family: Arial;
+	padding: 0 20%;
+}
+
+.new-list {
+	background-color: #FECC32;
+	padding: 8px 10px;
+	margin: 10px 0;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.new-list:hover {
+	font-size: 12px;
 }
 
 form {
 	background-color: white;
 	width: 300px;
 	padding: 1em;
-	margin: 1em;
+	margin: 10px 0;
 	border-top: solid #90a4ae 5px;
 	border-radius: 5px;
 }
 
-.selected {
+form.selected {
 	width: 325px;
 	border-top: solid #88D2EE 10px;
 }
@@ -42,35 +57,6 @@ input {
 	height: 20px;
 }
 
-ul {
-	list-style: none;
-	padding-right: 30px;
-	padding-left: 1.7em;
-}
-
-li {
-	padding: 5px 0px;
-	text-indent: -1.7em;
-}
-
-.selected li:hover {
-	color: #90a4ae;
-}
-
-.new-form {
-	background-color: #FECC32;
-	padding: 8px 10px;
-	border: none;
-	color: white;
-	border-radius: 5px;
-	font-weight: bold
-}
-
-.new-form:hover {
-	width: 85px;
-	height: 32px;
-}
-
 .add {
 	background-color: #b0bec5;
 	border: none;
@@ -87,6 +73,22 @@ li {
 	height: 20px;
 }
 
+ul {
+	list-style: none;
+	padding-right: 30px;
+	padding-left: 1.7em;
+}
+
+li {
+	padding: 5px 0px;
+	text-indent: -1.7em;
+	font-size: 13px;
+}
+
+.selected li {
+	color: #90a4ae;
+}
+
 .submit {
 	border: none;
 	width: 90px;
@@ -98,25 +100,25 @@ li {
 	opacity: 0.75;
 }
 
-.selected .submit {
-	background-color: #88D2EE;
-	margin-left: 230px;	
+.list-item {
+	font-size: 13px;
 }
 
-.selected .submit:hover {
-	font-weight: bold;
-	background-color: white;
-	border: solid #88D2EE 2px;
-	color: #88D2EE;
+.selected .list-item {
+	color: #9D7126;
 }
 
 .remove-item {
 	background-color: white;
 	margin-right: 0.5em;
 	border: none;
-	color: #88D2EE;
+	color: #90a4ae;
 	border-radius: 10px;
 	opacity: 0.25;
+}
+
+.selected .remove-item {
+	color: #88D2EE;
 }
 
 .selected .remove-item:hover {
@@ -126,10 +128,14 @@ li {
 	opacity: 1;
 }
 
-.list-item {
-	font-size: 13px;
+.selected .submit {
+	margin-left: 230px;	
+	background-color: #88D2EE;
 }
 
-.selected .list-item {
-	color: #9D7126;
+.selected .submit:hover {
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	opacity: 1;
 }

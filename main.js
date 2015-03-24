@@ -15,6 +15,9 @@
 		//ELEMENT PROPERTIES
 		var addText = document.createTextNode("+")
 		var submitText = document.createTextNode("Submit")
+
+		self.form.setAttribute('action', '/');
+		self.form.setAttribute('method', 'POST');
 		self.addButton.appendChild(addText);
 		self.addButton.setAttribute("type", "button");
 		self.addButton.setAttribute("class", "add");
@@ -96,16 +99,17 @@
 		}
 
 		self.form.addEventListener("click", function(e) {
-			var forms = document.getElementsByTagName('form');
-			for(i=0; i < forms.length; i++) {
-				forms[i].setAttribute('class', '');
+			if(self.form.getAttribute('class') == null) {
+				var forms = document.getElementsByTagName('form');
+				for(i=0; i < forms.length; i++) {
+					forms[i].removeAttribute('class');
+				}
+				self.form.setAttribute('class', 'selected');
 			}
-			self.form.setAttribute('class', 'selected');
 		})
-
 	} 	
 
-	var newButton = document.getElementById("new-form");
+	var newButton = document.getElementById("new-list");
 	newButton.addEventListener("click", function(e) {
 		var form = new Form;
 		form.create();

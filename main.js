@@ -9,12 +9,18 @@
 		this.submitButton = document.createElement("button");
 	}
 
-	Form.prototype.create = function() {
+	Form.prototype.create = function(newList) {
+		var self = this;
 		var addText = document.createTextNode("+")
+		var removeText = document.createTextNode("x")
 		var submitText = document.createTextNode("Submit")
+		var removeForm = document.createElement("button");
 		//ELEMENT PROPERTIES
 		this.form.setAttribute('action', '/');
 		this.form.setAttribute('method', 'POST');
+		removeForm.setAttribute("class", "remove-form");
+		removeForm.setAttribute("type", "button");
+		removeForm.appendChild(removeText);
 		this.listInput.setAttribute("class", "add-input");
 		this.addButton.appendChild(addText);
 		this.addButton.setAttribute("type", "button");
@@ -26,11 +32,16 @@
 		//ADD TO PAGE
 		var listSection = document.getElementById('list-section');
 		var form = listSection.appendChild(this.form);
+		form.appendChild(removeForm);
 		form.appendChild(this.listInput);
 		form.appendChild(this.addButton);
 		form.appendChild(this.listItems);
 		form.appendChild(this.submitButton);
+		if (newList) {
+			newList.forEach(function(e){self.list(e)});
+		}
 		// FUNCTIONALITY
+		removeForm.addEventListener("click", this.remove);
 		this.listInput.addEventListener("keypress", this.add.bind(this));
 		this.addButton.addEventListener("click", this.add.bind(this));
 		this.submitButton.addEventListener("click", this.submit.bind(this));
@@ -42,18 +53,20 @@
 			case 'keypress':
 				if(e.keyCode === 13) {
 					e.preventDefault();
-					this.list();
+					this.list(this.listInput.value);
 				}
 				break;
 			case 'click':
-				this.list();
+				this.list(this.listInput.value);
 				break;
 		}
 	}
 
-	Form.prototype.list = function(e) {
-		var itemText = this.listInput.value;
-		if(itemText.length > 0) {
+	Form.prototype.list = function(input) {
+		if (!input.length) {
+			alert('Please enter a something!');
+		} else {
+			var itemText = input;
 			// CREATE ELEMENTS
 			var itemInput = document.createElement("input");
 			var listItem = document.createElement("li");
@@ -75,18 +88,16 @@
 			// FUNCTIONALITY
 			this.listInput.value = "";
 			removeButton.addEventListener("click", this.remove);
-		} else {
-			alert('Please enter a something!');
 		}
 	}
 
 	Form.prototype.remove = function(e) {
 		e.preventDefault();
-		var listItem = e.toElement.parentNode;
-		listItem.parentNode.removeChild(listItem);
+		var remove = e.toElement.parentNode;
+		remove.parentNode.removeChild(remove);
 	}
 
-	Form.prototype.focus = function(e) {
+	Form.prototype.focus = function() {
 		if(this.form.getAttribute('class') == null) {
 			var forms = document.getElementsByTagName('form');
 			for(i=0; i < forms.length; i++) {
@@ -99,11 +110,29 @@
 	Form.prototype.submit = function(e) {
 		e.preventDefault();
 		var form = e.toElement.parentNode;
-		var listItems = e.toElement.form.children[2].children;
+		var listItems = e.toElement.form.children[3].children;
+		console.log(listItems);
 		if(listItems.length > 0) {
+			localStorage.clear();
+			form.parentNode.removeChild(form);
+			this.save();
 			form.submit();
+
 		} else {
 			alert('Nothing to submit!');
+		}
+	}
+
+	Form.prototype.save = function() {
+		var forms = document.getElementsByTagName('form');
+		for(i=0; i<forms.length; i++) {
+			var serialList = [];
+			if(forms[i].elements['item[]']) {
+				for(j=0; j<forms[i].elements['item[]'].length; j++) {
+					serialList.push(forms[i].elements['item[]'][j].value);
+				}
+				localStorage.setItem(i, serialList);
+			}
 		}
 	}
 
@@ -113,7 +142,13 @@
 		form.create();
 	})
 
-	var form = new Form();
-	form.create();
+	for(var x in localStorage) {
+		if(localStorage){
+			var form = new Form();
+			form.create(localStorage[x].split(','));
+		} else {
+			form.create();
+		}
+	}
 	
 })();

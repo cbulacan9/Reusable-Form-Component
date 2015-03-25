@@ -1,9 +1,14 @@
-<h1>TripleLift - Reusable Form Component</h1>
+#TripleLift - Reusable Form Component
 
->sudo npm install
->npm start
+####To start: 
+```javascript
+sudo npm install
+```
+```javascript
+npm start
+```
 
-<h3>Coding Challenge Prompt</h3>
+###Coding Challenge Prompt
 Design a reusable form component that meets the following requirements:
 
 > The initial state should be an empty input box, and an ADD button.
@@ -16,7 +21,7 @@ Please use only straight HTML, CSS, and Javascript. Do not use any CSS framework
 
 Feel free to include additional interactions as you see fit. Style to taste. Have fun!
 
-<h3>COMMENTS</h3>
+###COMMENTS
 - Added express server, to handle POST request.
 - Used html5 localStorage to persist data.
 - Will only persist lists with any un-submitted lists and saved data on refresh and form.submit().

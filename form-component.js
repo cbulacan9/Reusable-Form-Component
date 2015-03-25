@@ -51,7 +51,6 @@
 		switch(e.type) {
 			case 'keypress':
 				if(e.keyCode === 13) {
-					console.log(this.listInput.value);
 					e.preventDefault();
 					localStorage.clear();
 					this.list(this.listInput.value);
@@ -131,7 +130,6 @@
 		localStorage.clear();
 		var remove = e.target.parentNode;
 		remove.parentNode.removeChild(remove);
-		console.log(this);
 		this.save();
 	}
 
@@ -146,7 +144,6 @@
 	}
 
 	Form.prototype.submit = function(e) {
-		console.log(e);
 		e.preventDefault();
 		var form = e.target.parentNode;
 		var listItems = e.target.form.children[3].children;

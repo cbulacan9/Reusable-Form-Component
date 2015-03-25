@@ -1,4 +1,4 @@
-TripleLift - Coding Challenge Prompt
+<h1>TripleLift - Coding Challenge Prompt</h1>
 
 Design a reusable form component that meets the following requirements:
 
@@ -12,8 +12,7 @@ Please use only straight HTML, CSS, and Javascript. Do not use any CSS framework
 
 Feel free to include additional interactions as you see fit. Style to taste. Have fun!
 
-<h1>COMMENTS</h1>
-Name: Christian Bulacan
+<h3>COMMENTS</h3>
 - Added express server, to handle POST request.
 - Used html5 localStorage to persist data.
 - Will only persist lists with any un-submitted lists and saved data on refresh and form.submit().

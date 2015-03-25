@@ -19,7 +19,9 @@ Name: Christian Bulacan
 - Will only persist lists with any un-submitted lists and saved data on refresh and form.submit().
 
 Interactions
-- Can add items to the list
+- Can add items to the list ('enter key on input or using + button')
 - Can edit items in the list ('double click on list item')
+- Can save changes ('enter key inside input')
 - Can remove list items.
 - Can remove whole list.
+- Can submit array of items with form data on POST request.

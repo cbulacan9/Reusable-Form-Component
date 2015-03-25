@@ -121,6 +121,7 @@
 				input.removeAttribute('class');
 				span.setAttribute('class', 'edit');
 				input.setAttribute('class', 'edit');
+				input.focus();
 				break;
 		}
 	}

@@ -1,6 +1,6 @@
 (function(){
 
-	window.Form = function() {
+	function Form() {
 		// FORM ELEMENTS
 		this.form = document.createElement("form");
 		this.listInput = document.createElement("input");
@@ -183,3 +183,5 @@
 	}
 
 })();
+
+

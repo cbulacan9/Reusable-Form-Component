@@ -1,5 +1,6 @@
-<h1>TripleLift - Coding Challenge Prompt</h1>
+<h1>TripleLift - Reusable Form Component</h1>
 
+<h3>Coding Challenge Prompt</h3>
 Design a reusable form component that meets the following requirements:
 
 > The initial state should be an empty input box, and an ADD button.

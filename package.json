@@ -1,0 +1,30 @@
+{
+  "name": "Reusable-Form-Component",
+  "version": "1.0.0",
+  "description": "Reusable Form Component, TripleLift",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbulacan9/Reusable-Form-Component.git"
+  },
+  "keywords": [
+    "Form",
+    "List",
+    "TripleLift"
+  ],
+  "author": "Christian Bulacan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbulacan9/Reusable-Form-Component/issues"
+  },
+  "homepage": "https://github.com/cbulacan9/Reusable-Form-Component"
+}

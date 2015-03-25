@@ -1,5 +1,8 @@
 <h1>TripleLift - Reusable Form Component</h1>
 
+>sudo npm install
+>npm start
+
 <h3>Coding Challenge Prompt</h3>
 Design a reusable form component that meets the following requirements:
 

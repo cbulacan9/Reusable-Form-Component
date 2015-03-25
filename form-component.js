@@ -1,6 +1,6 @@
 (function(){
 
-	function Form() {
+	window.Form = function() {
 		// FORM ELEMENTS
 		this.form = document.createElement("form");
 		this.listInput = document.createElement("input");
